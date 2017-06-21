@@ -27,25 +27,25 @@ public class HomeController {
         return "form";
     }
     @PostMapping("/add")
-    public String processTransaction(BindingResult bindingResult, @ModelAttribute @Valid TransactionATM transactionATM){
+    public String processTransaction(@Valid TransactionATM transactionATM, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             return "form";
         }
 
         if(transactionATM.getTranReason().toLowerCase().equals("withdrawal")||transactionATM.getTranReason().toLowerCase().equals("withdraw")){
-            if(transactionATM.getTranAmount()<0){
+            if(transactionATM.getTranAmount().doubleValue()<0){
                 return "form";
             }
-            transactionATM.setTranBalance(Double.toString(transactionATM.getTranBalance()-transactionATM.getTranAmount()));
-            if(transactionATM.getTranBalance()<0){
+            transactionATM.setTranBalance(Double.toString(transactionATM.getTranBalance().doubleValue()-transactionATM.getTranAmount().doubleValue()));
+            if(transactionATM.getTranBalance().doubleValue()<0){
                 return "form";
             }
         }
         else if(transactionATM.getTranReason().toLowerCase().equals("deposit")){
-            if(transactionATM.getTranAmount()<0){
+            if(transactionATM.getTranAmount().doubleValue()<0){
                 return "form";
             }
-            transactionATM.setTranBalance(Double.toString(transactionATM.getTranBalance()+transactionATM.getTranAmount()));
+            transactionATM.setTranBalance(Double.toString(transactionATM.getTranBalance().doubleValue()+transactionATM.getTranAmount().doubleValue()));
 
         }
         else{

@@ -10,3 +10,9 @@ create table TransactionATM(
     tranID integer auto_increment,
     primary key (tranID)
 );
+
+show create table TransactionATM;
+
+select* from TransactionATM;
+
+describe TransactionATM;

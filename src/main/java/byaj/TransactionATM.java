@@ -8,9 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 
 @Entity
 public class TransactionATM {
@@ -23,11 +25,11 @@ public class TransactionATM {
     @Min(1)
     private int tranAcc;
     @NotNull
-    @Min(1)
-    private double tranAmount;
+    @DecimalMin(value="0.0", inclusive=false)
+    private BigDecimal tranAmount;
     @NotNull
-    @Min(1)
-    private double tranBalance;
+    @DecimalMin(value="0.0", inclusive=false)
+    private BigDecimal tranBalance;
     @NotNull
     @Size(min=2, max=30)
     private String tranReason;
@@ -39,17 +41,17 @@ public class TransactionATM {
     /*public void setTranID(int tranID) {
         this.tranID = tranID;
     }*/
-    public double getTranBalance(){
+    public BigDecimal getTranBalance(){
         return tranBalance;
     }
-    public double getTranAmount(){
+    public BigDecimal getTranAmount(){
         return tranAmount;
     }
     public void setTranBalance(String tranBalance) {
-        this.tranBalance = Double.parseDouble(tranBalance);
+        this.tranBalance = new BigDecimal(tranBalance);
     }
     public void setTranAmount(String tranAmount) {
-        this.tranAmount = Double.parseDouble(tranAmount);
+        this.tranAmount = new BigDecimal(tranAmount);
     }
 
     public String getTranReason() {

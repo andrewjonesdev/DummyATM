@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <title>ATM</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -46,7 +46,7 @@
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Search"/>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -71,19 +71,19 @@
 <form th:action="@{/add}" th:object="${transactionATM}" method="post">
     <div class="form-group">
         <label for="exampleInputNumber1">Account Number</label>
-        <input type="number" class="form-control" id="exampleInputNumber1" placeholder="Account Number" th:object="${transactionATM}" th:field="*{tranAcc}">
+        <input type="number" class="form-control" id="exampleInputNumber1" placeholder="Account Number" th:field="*{tranAcc}"/>
     </div>
     <div class="form-group">
         <label for="exampleInputText3">Balance</label>
-        <input type="text" class="form-control" id="exampleInputText3" placeholder="Balance" th:object="${transactionATM}" th:field="*{tranBalance}">
+        <input type="text" class="form-control" id="exampleInputText3" placeholder="Balance" th:field="*{tranBalance}"/>
     </div>
     <div class="form-group">
         <label for="exampleInputText4">Reason</label>
-        <input type="text" class="form-control" id="exampleInputText4" placeholder="Reason" th:object="${transactionATM}" th:field="*{tranReason}">
+        <input type="text" class="form-control" id="exampleInputText4" placeholder="Reason"  th:field="*{tranReason}"/>
     </div>
     <div class="form-group">
         <label for="exampleInputText5">Amount</label>
-        <input type="text" class="form-control" id="exampleInputText5" placeholder="Amount" th:object="${transactionATM}" th:field="*{tranAmount}">
+        <input type="text" class="form-control" id="exampleInputText5" placeholder="Amount" th:field="*{tranAmount}"/>
     </div>
     <!-- <div class="form-group">
          <label for="exampleInputPassword1">Password</label>
