@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org">
 <head th:replace="home :: head"  ></head>
 <body>
+<div class="container">
 <nav th:replace="home :: navbar"  >
 
 </nav>
@@ -24,12 +25,13 @@
     <tr th:each="item : ${items}">
         <td th:text="${item.tranAcc}"></td>
         <td th:text="${item.tranAction}"></td>
-        <td th:text="${item.tranAmount}"></td>
-        <td th:text="'$'+${item.tranReason}"></td>
-        <td th:text="${item.tranBalance}"></td>
+        <td th:text="'$'+${item.tranAmount}"></td>
+        <td th:text="${item.tranReason}"></td>
+        <td th:text="'$'+${item.tranBalance}"></td>
     </tr>
 </table>
 <!--<a href="/greet/greet">Submit another message</a>-->
+</div>
 </body>
 
 
