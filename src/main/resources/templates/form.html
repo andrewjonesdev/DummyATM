@@ -7,19 +7,20 @@
 
 </nav>
 
-
+    <h2 th:text="${'Account #: ' + {account.accNumber}}"></h2>
+    <h3 th:text="${'Balance: $' + {account.accBalance}}"></h3>
 <form th:action="@{/add}" th:object="${transactionATM}" method="post">
-    <div class="form-group">
+   <!--<div class="form-group">
         <label for="exampleInputNumber1">Account Number</label>
         <input type="number" class="form-control" id="exampleInputNumber1" placeholder="Account Number" th:field="*{tranAcc}"/>
-    </div>
-    <div class="form-group">
+    </div>-->
+    <!--<div class="form-group">
         <label for="exampleInputText3">Balance</label>
         <div class="input-group">
             <div class="input-group-addon">$</div>
         <input type="text" class="form-control" id="exampleInputText3" placeholder="Balance" th:field="*{tranBalance}"/>
         </div>
-    </div>
+    </div>-->
     <div class="radio">
         <p style="display: inline-block;max-width: 100%;margin-bottom: 5px;font-weight: 700;">Action</p><br/>
         <label>

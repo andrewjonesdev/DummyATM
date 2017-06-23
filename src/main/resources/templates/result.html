@@ -21,13 +21,15 @@
         <th>Amount</th>
         <th>Reason</th>
         <th>Balance</th>
+        <th>Date &amp; Time</th>
     </tr>
     <tr th:each="item : ${items}">
         <td th:text="${item.tranAcc}"></td>
         <td th:text="${item.tranAction}"></td>
-        <td th:text="'$'+${item.tranAmount}"></td>
+        <td th:text="${'$'+{item.tranAmount}}"></td>
         <td th:text="${item.tranReason}"></td>
-        <td th:text="'$'+${item.tranBalance}"></td>
+        <td th:text="${'$'+{item.tranBalance}}"></td>
+        <td th:text="${item.getFormatDate()}"></td>
     </tr>
 </table>
 <!--<a href="/greet/greet">Submit another message</a>-->

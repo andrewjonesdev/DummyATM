@@ -6,6 +6,8 @@ package byaj;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface TransactionATMRepository extends CrudRepository<TransactionATM, Integer> {
+import java.util.List;
 
+public interface TransactionATMRepository extends CrudRepository<TransactionATM, Integer> {
+    public List<TransactionATM> findAllByTranAccOrderByTranDateDesc(int tranAcc);
 }
