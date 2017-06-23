@@ -54,9 +54,9 @@ public class HomeController {
     }
 
     @GetMapping("/account")
-    public String getReddit(Model model, TransactionATM transactionATM){
-        model.addAttribute(transactionATM);
-        model.addAttribute("items", transactionATMRepository.findAllByTranAccOrderByTranDateDesc(transactionATM.getTranAcc()));
+    public String getReddit(Model model, Principal principal){
+
+        model.addAttribute("items", transactionATMRepository.findAllByTranAccOrderByTranDateDesc(Integer.parseInt(principal.getName())));
         return "byaccount";
     }
 
