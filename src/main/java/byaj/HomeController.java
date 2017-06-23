@@ -26,13 +26,21 @@ public class HomeController {
         model.addAttribute("transactionATM", new TransactionATM());
         return "form";
     }
+
+    @GetMapping("/add")
+    public String getRooms(Model model){
+        model.addAttribute(new TransactionATM());
+        model.addAttribute("items", transactionATMRepository.findAll());
+        return "result";
+    }
+
     @PostMapping("/add")
     public String processTransaction(@Valid TransactionATM transactionATM, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             return "form";
         }
 
-        if(transactionATM.getTranReason().toLowerCase().equals("withdrawal")||transactionATM.getTranReason().toLowerCase().equals("withdraw")){
+        if(transactionATM.getTranAction().toLowerCase().equals("withdrawal")||transactionATM.getTranAction().toLowerCase().equals("withdraw")){
             if(transactionATM.getTranAmount().doubleValue()<0){
                 return "form";
             }
@@ -41,7 +49,7 @@ public class HomeController {
                 return "form";
             }
         }
-        else if(transactionATM.getTranReason().toLowerCase().equals("deposit")){
+        else if(transactionATM.getTranAction().toLowerCase().equals("deposit")){
             if(transactionATM.getTranAmount().doubleValue()<0){
                 return "form";
             }
@@ -52,6 +60,6 @@ public class HomeController {
             return "form";
         }
         transactionATMRepository.save(transactionATM);
-        return "result";
+        return "redirect:/add";
     }
 }

@@ -32,6 +32,9 @@ public class TransactionATM {
     private BigDecimal tranBalance;
     @NotNull
     @Size(min=2, max=30)
+    private String tranAction;
+    @NotNull
+    @Size(min=2, max=200)
     private String tranReason;
 
     public int getTranID() {
@@ -53,7 +56,9 @@ public class TransactionATM {
     public void setTranAmount(String tranAmount) {
         this.tranAmount = new BigDecimal(tranAmount);
     }
-
+    public String getTranAction() {
+        return tranAction;
+    }
     public String getTranReason() {
         return tranReason;
     }
@@ -61,7 +66,9 @@ public class TransactionATM {
     public int getTranAcc() {
         return tranAcc;
     }
-
+    public void setTranAction (String tranAction) {
+        this.tranAction = tranAction;
+    }
     public void setTranReason (String tranReason) {
         this.tranReason = tranReason;
     }
