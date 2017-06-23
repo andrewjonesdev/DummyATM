@@ -10,4 +10,5 @@ import java.util.List;
 
 public interface TransactionATMRepository extends CrudRepository<TransactionATM, Integer> {
     public List<TransactionATM> findAllByTranAccOrderByTranDateDesc(int tranAcc);
+    public List<TransactionATM> findAllByOrderByTranDateDesc();
 }

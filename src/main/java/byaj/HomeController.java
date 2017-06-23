@@ -49,7 +49,7 @@ public class HomeController {
     @GetMapping("/add")
     public String getRooms(Model model){
         model.addAttribute(new TransactionATM());
-        model.addAttribute("items", transactionATMRepository.findAll());
+        model.addAttribute("items", transactionATMRepository.findAllByOrderByTranDateDesc());
         return "result";
     }
 
