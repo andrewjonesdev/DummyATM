@@ -30,19 +30,19 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(){
-        return "home";
+        return "home2";
     }
 
     @GetMapping("/")
     public String newTransactionATM(Model tranModel, Model accModel, Principal principal){
         accModel.addAttribute("account", accountRepository.findOneByAccNumber(principal.getName()));
         tranModel.addAttribute("transactionATM", new TransactionATM());
-        return "form";
+        return "form2";
     }
 
     @RequestMapping("/login")
     public String login() {
-        return "login";
+        return "login2";
     }
 
 
@@ -50,14 +50,14 @@ public class HomeController {
     public String getRooms(Model model){
         model.addAttribute(new TransactionATM());
         model.addAttribute("items", transactionATMRepository.findAllByOrderByTranDateDesc());
-        return "result";
+        return "result2";
     }
 
     @GetMapping("/account")
     public String getReddit(Model model, Principal principal){
 
         model.addAttribute("items", transactionATMRepository.findAllByTranAccOrderByTranDateDesc(Integer.parseInt(principal.getName())));
-        return "byaccount";
+        return "byaccount2";
     }
 
     @PostMapping("/add")

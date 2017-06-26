@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" >
+<head th:replace="home :: head"  ></head>
+<body>
+<div class="container">
+    <nav th:replace="home2 :: navbar"  >
+
+    </nav>
+    <nav th:replace="home2 :: navbarError">
+
+    </nav>
+    <h1>Result</h1>
+    <!--<p th:text="'id: ' + ${greeting.id}" />-->
+    <!--<p th:text="'Account Number: ' + ${transactionATM.getTranAcc()}" />
+    <p th:text="'Action: ' + ${transactionATM.getTranAction()}" />
+    <p th:text="'Amount: ' + ${transactionATM.getTranAmount()}" />
+    <p th:text="'Reason: ' + ${transactionATM.getTranReason()}" />
+    <p th:text="'Balance: ' + ${transactionATM.getTranBalance()}" />-->
+    <table class="table table-striped">
+        <tr>
+            <th>Account #</th>
+            <th>Action</th>
+            <th>Amount</th>
+            <th>Reason</th>
+            <th>Balance</th>
+            <th>Date &amp; Time</th>
+        </tr>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.tranAcc}"></td>
+            <td th:text="${item.tranAction}"></td>
+            <td th:text="${'$'+{item.tranAmount}}"></td>
+            <td th:text="${item.tranReason}"></td>
+            <td th:text="${'$'+{item.tranBalance}}"></td>
+            <td th:text="${item.getFormatDate()}"></td>
+        </tr>
+    </table>
+    <!--<a href="/greet/greet">Submit another message</a>-->
+</div>
+</body>
+<th:block th:include="home2::scripts"/>
+
+</html>

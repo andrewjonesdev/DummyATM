@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org">
+<head th:replace="home2 :: head"></head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-ct-green" th:if="${ #lists.isEmpty(param.error)}">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">ATM</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/account">Receipt <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/add">Reccords <span class="sr-only">(current)</span></a></li>
+                    <!--<li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add more <span class="caret"/></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a href="/">ATM</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/add">Receipt</a></li>
+                        </ul>
+                    </li>-->
+                </ul>
+
+                <!--<ul class="nav navbar-nav navbar-right">
+                    <li>            <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search"/>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    </li>
+                </ul>-->
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <nav class="navbar navbar-ct-red" th:if="${not #lists.isEmpty(param.error)}">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">ATM</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/account">Receipt <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/add">Reccords <span class="sr-only">(current)</span></a></li>
+                    <!--<li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add more <span class="caret"/></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a href="/">ATM</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/add">Receipt</a></li>
+                        </ul>
+                    </li>-->
+                </ul>
+
+                <!--<ul class="nav navbar-nav navbar-right">
+                    <li>            <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search"/>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    </li>
+                </ul>-->
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <form th:action="@{/login}" method="post">
+        <div id="acordeon">
+            <div th:if="${param.error}">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <div class="panel-group" id="accordion">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" href="#collapseOne">
+
+                                Account #
+
+                            </a>
+
+                        </h4>
+
+                    </div>
+
+                    <div id="collapseOne" class="panel-collapse collapse">
+
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="exampleInputText1">Account #</label>
+                                <input type="text" class="form-control" id="exampleInputText1" placeholder="Username"
+                                       name="username"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" href="#collapseTwo">
+
+                                Password
+
+                            </a>
+
+                        </h4>
+
+                    </div>
+
+                    <div id="collapseTwo" class="panel-collapse collapse">
+
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                       placeholder="Password" name="password"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" href="#collapseThree">
+
+                                Submit
+
+                            </a>
+
+                        </h4>
+
+                    </div>
+
+                    <div id="collapseThree" class="panel-collapse collapse">
+
+                        <div class="panel-body">
+
+                            <button type="submit" class="btn btn-default" value="Sign In">Sign In</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div><!--  end acordeon -->
+
+
+        <!--<div><label> User Name : <input type="text" name="username"/> </label></div>
+        <div><label> Password: <input type="password" name="password"/> </label></div>
+        <div><input type="submit" value="Sign In"/></div>-->
+
+    </form>
+</div>
+</body>
+
+
+</html>

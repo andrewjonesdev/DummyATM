@@ -25,6 +25,8 @@ INSERT INTO authorities (username,authority) VALUES (1000,"admin"),(1001,"admin"
 
 show create table users;
 
+desc account;
+
 select* from users;
 
 describe users;

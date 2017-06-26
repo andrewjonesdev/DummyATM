@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org">
+<head th:replace="home :: head"></head>
+<body>
+<div class="container">
+    <nav th:replace="home2 :: navbar">
+
+    </nav>
+    <nav th:replace="home2 :: navbarError">
+
+    </nav>
+    <form th:action="@{/add}" th:object="${transactionATM}" method="post">
+        <div id="acordeon">
+
+            <div class="panel-group" id="accordion">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" href="#collapseOne">
+
+                                Account #
+
+                            </a>
+
+                        </h4>
+
+                    </div>
+
+                    <div id="collapseOne" class="panel-collapse collapse">
+
+                        <div class="panel-body">
+
+                            <p th:text="${'Account #: ' + {account.accNumber}}"></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" href="#collapseTwo">
+
+                                Balance
+
+                            </a>
+
+                        </h4>
+
+                    </div>
+
+                    <div id="collapseTwo" class="panel-collapse collapse">
+
+                        <div class="panel-body">
+
+                            <p th:text="${'Balance: $' + {account.accBalance}}"></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" href="#collapseThree">
+
+                                Action
+
+                            </a>
+
+                        </h4>
+
+                    </div>
+
+                    <div id="collapseThree" class="panel-collapse collapse">
+
+                        <div class="panel-body">
+
+                            <div class="radio">
+                                <p style="display: inline-block;max-width: 100%;margin-bottom: 5px;font-weight: 700;">
+                                    Action</p><br/>
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="Withdraw"
+                                           th:field="*{tranAction}"/>
+                                    Withdraw
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="Deposit"
+                                           th:field="*{tranAction}"/>
+                                    Deposit
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" href="#collapseFour">
+
+                                Reason
+
+                            </a>
+
+                        </h4>
+
+                    </div>
+
+                    <div id="collapseFour" class="panel-collapse collapse">
+
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="exampleInputText4">Reason</label>
+                                <div th:if="${not #fields.hasErrors('tranReason')}" class="form-control">
+                                    <input type="text" class="form-control" id="exampleInputText4" placeholder="Reason"
+                                           th:field="*{tranReason}"/>
+                                    <span class="fa fa-remove form-control-feedback"></span>
+                                </div>
+                                <div th:if="${#fields.hasErrors('tranReason')}"
+                                     class="form-group has-error has-feedback">
+                                    <input type="text" class="form-control" id="exampleInputText4" placeholder="Reason"
+                                           th:field="*{tranReason}"/>
+                                    <span class="fa fa-remove form-control-feedback"></span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">
+
+                            <a data-toggle="collapse" href="#collapseFive">
+
+                                Amount
+
+                            </a>
+
+                        </h4>
+
+                    </div>
+
+                    <div id="collapseFive" class="panel-collapse collapse">
+
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label for="exampleInputText5">Amount</label>
+                                <div th:if="${not #fields.hasErrors('tranAmount')}" class="form-control">
+                                    <input type="text" class="form-control" id="exampleInputText5" placeholder="Amount"
+                                           th:field="*{tranAmount}"/>
+                                    <span class="fa fa-remove form-control-feedback"></span>
+                                </div>
+                                <div th:if="${#fields.hasErrors('tranAmount')}"
+                                     class="form-group has-error has-feedback">
+                                    <input type="text" class="form-control" id="exampleInputText5" placeholder="Amount"
+                                           th:field="*{tranAmount}"/>
+                                    <span class="fa fa-remove form-control-feedback"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            <h4 class="panel-title">
+
+                                <a data-toggle="collapse" href="#collapseSix">
+
+                                    Submit
+
+                                </a>
+
+                            </h4>
+
+                        </div>
+
+                        <div id="collapseSix" class="panel-collapse collapse">
+
+                            <div class="panel-body">
+
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+            <!--  end acordeon -->
+
+
+            <!--<div class="form-group">
+                 <label for="exampleInputNumber1">Account Number</label>
+                 <input type="number" class="form-control" id="exampleInputNumber1" placeholder="Account Number" th:field="*{tranAcc}"/>
+             </div>-->
+            <!--<div class="form-group">
+                <label for="exampleInputText3">Balance</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                <input type="text" class="form-control" id="exampleInputText3" placeholder="Balance" th:field="*{tranBalance}"/>
+                </div>
+            </div>-->
+
+
+            <!-- <div class="form-group">
+                 <label for="exampleInputPassword1">Password</label>
+                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+             </div>
+             <div class="form-group">
+                 <label for="exampleInputFile">File input</label>
+                 <input type="file" id="exampleInputFile">
+                 <p class="help-block">Example block-level help text here.</p>
+             </div>
+             <div class="checkbox">
+                 <label>
+                     <input type="checkbox"> Check me out
+                 </label>
+             </div>-->
+
+    </form>
+</div>
+</body>
+<th:block th:include="home2::scripts"/>
+</html>
